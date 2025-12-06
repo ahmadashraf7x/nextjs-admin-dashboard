@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Admin Dashboard — Orders, Customers & Products
 
-## Getting Started
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React](https://img.shields.io/badge/React-19.2.1-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
+![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-38B2AC)
 
-First, run the development server:
+A modern **Admin Dashboard** built with **Next.js (App Router)**, **React**, **TypeScript** and **Tailwind CSS**.
+
+Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and **Stats** with search, filters, sorting and charts — using static mock data (no backend).
+
+---
+
+## 🚀 Features
+
+### 🧭 Layout & Navigation
+- Persistent sidebar with:
+  - Dashboard
+  - Orders
+  - Customers
+  - Products
+  - Statistics
+- Responsive layout (sidebar hidden on mobile, main content full width)
+
+---
+
+### 📊 Dashboard (Overview)
+- Summary cards:
+  - Total Orders
+  - Total Revenue
+  - Pending Orders
+- Line chart: **Revenue per day**
+- Pie chart: **Orders by status**
+- Recent orders table with status badges
+
+---
+
+### 📦 Orders Page
+- Full orders list
+- Search by:
+  - Order ID
+  - Customer name
+- Filter by **status** (Pending / Shipped / Cancelled)
+- Sorting:
+  - ID (asc/desc)
+  - Date (asc/desc)
+  - Amount (asc/desc)
+- Link to **Order details** page `/orders/[id]`
+
+---
+
+### 👥 Customers Page
+- Summary cards:
+  - Total customers
+  - Active customers
+  - Total spent (all customers)
+- Search by **name** or **email**
+- Filter by status (Active / VIP / Inactive)
+- Sorting:
+  - Name (A–Z / Z–A)
+  - Total spent (asc/desc)
+- Customers table with status badges
+- Customer details page `/customers/[id]` showing:
+  - Basic info
+  - Status, total orders, total spent
+  - Simple summary
+
+---
+
+### 🛒 Products Page
+- Summary cards:
+  - Total products
+  - In stock
+  - Low stock
+  - Out of stock
+- Search by **name** or **category**
+- Filter by **stock status**
+- Sorting:
+  - Name (A–Z / Z–A)
+  - Price (asc/desc)
+- Products table with:
+  - ID, name, category, price, stock, status badge
+- Product details page `/products/[id]`
+
+---
+
+### 📈 Statistics Page
+- Global KPIs:
+  - Total orders
+  - Total revenue
+  - Average order value
+  - New customers this month
+- Top 5 customers by **total spent**
+- Top 5 customers by **number of orders**
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js 16.0.7 (App Router)**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- Mock data stored locally in `data/` folder (no backend)
+
+---
+
+## 📸 Screenshots
+### 📊 Dashboard Overview
+![Dashboard](./public/screenshots/dashboard.png)
+
+### 🛍 Products
+![Products](./public/screenshots/products.png)
+
+### 📦 Orders Management
+![Orders](./public/screenshots/orders.png)
+
+### 👥 Customers
+![Customers](./public/screenshots/customers.png)
+
+### 📈 Statistics
+![Statistics](./public/screenshots/statistics.png)
+
+## ▶️ Run Locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/USERNAME/admin-dashboard-nextjs.git
+cd admin-dashboard-nextjs
+npm install
+npm run dev```
