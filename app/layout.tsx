@@ -12,7 +12,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gray-100">
         <div className="min-h-screen flex">
-          {/* 🟦 SIDEBAR */}
           <aside className="w-64 bg-slate-900 text-white hidden md:flex flex-col">
             <div className="px-6 py-4 border-b border-slate-700">
               <h1 className="text-xl font-bold">Admin Dashboard</h1>
@@ -63,10 +62,7 @@ export default function RootLayout({
               Logged in as <span className="text-slate-200">Admin</span>
             </div>
           </aside>
-
-          {/* 🟩 MAIN AREA */}
           <main className="flex-1 flex flex-col">
-            {/* Top bar (mobile / title) */}
             <header className="md:hidden bg-white shadow-sm px-4 py-3 mb-2">
               <h1 className="text-lg font-semibold text-gray-800">
                 Admin Dashboard

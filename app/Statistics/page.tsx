@@ -4,22 +4,18 @@ import { orders } from "../data/orders";
 import { customers } from "../data/customers";
 
 export default function StatsPage() {
-  // 🟣 1) Basic numbers عن الأوردرات
   const totalOrders = orders.length;
   const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
   const avgOrderValue = totalOrders ? totalRevenue / totalOrders : 0;
 
-  // 🟣 2) Top 5 customers by totalSpent
   const topBySpent = [...customers]
     .sort((a, b) => b.totalSpent - a.totalSpent)
     .slice(0, 5);
 
-  // 🟣 3) Top 5 customers by totalOrders
   const topByOrders = [...customers]
     .sort((a, b) => b.totalOrders - a.totalOrders)
     .slice(0, 5);
 
-  // 🟣 4) New customers this month (بناءً على joinedAt)
   const now = new Date();
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
@@ -34,7 +30,6 @@ export default function StatsPage() {
 
   return (
     <div className="space-y-6">
-      {/* عنوان الصفحة */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
           Statistics
@@ -44,7 +39,6 @@ export default function StatsPage() {
 </p>
       </div>
 
-      {/* كروت الأرقام الأساسية */}
       <section className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-sm text-gray-500">Recent Orders</p>
@@ -73,7 +67,6 @@ export default function StatsPage() {
         </div>
       </section>
 
-      {/* Top 5 customers by total spent */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-3">
@@ -112,7 +105,6 @@ export default function StatsPage() {
           </table>
         </div>
 
-        {/* Top 5 by orders count */}
         <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-3">
             Top 5 Customers by Orders

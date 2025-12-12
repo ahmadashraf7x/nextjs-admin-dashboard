@@ -14,15 +14,12 @@ import {
   Cell,
 } from "recharts";
 
-// 🧮 شوية إحصائيات بسيطة
 const totalOrders = orders.length;
 const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
 const pendingOrders = orders.filter((o) => o.status === "Pending").length;
 
-// ✅ داتا الشارت بتاعة الـ Revenue per day
 const revenueByDateMap: Record<string, number> = {};
 orders.forEach((order) => {
-  // لو اليوم ده موجود زوّد عليه، لو مش موجود حطّه
   revenueByDateMap[order.date] =
     (revenueByDateMap[order.date] ?? 0) + order.amount;
 });
@@ -33,19 +30,17 @@ const revenueByDate = Object.entries(revenueByDateMap)
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
   );
 
-// ✅ داتا الشارت بتاعة عدد الأوردرز في كل status
 const statusData = [
   { name: "Pending", value: orders.filter((o) => o.status === "Pending").length },
   { name: "Shipped", value: orders.filter((o) => o.status === "Shipped").length },
   { name: "Cancelled", value: orders.filter((o) => o.status === "Cancelled").length },
 ];
 
-const STATUS_COLORS = ["#fbbf24", "#22c55e", "#f87171"]; // أصفر / أخضر / أحمر
+const STATUS_COLORS = ["#fbbf24", "#22c55e", "#f87171"]; 
 
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
-      {/* العنوان فوق */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
           Dashboard
@@ -55,7 +50,6 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      {/* الكروت بتاعة الإحصائيات */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-sm text-gray-500">Total Orders</p>
@@ -75,9 +69,7 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {/* 🟣 الشارتات */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Line chart - Revenue over time */}
         <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">
             Revenue over time
@@ -101,7 +93,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Pie chart - Orders by status */}
         <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">
             Orders by status
@@ -131,11 +122,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-
-      {/* جدول آخر الأوردرز زي ما هو عندك تحت */}
-      {/* ... باقي كود جدول Recent Orders اللي عندك ... */}
-
-       {/* جدول آخر الأوردرز */}
+      
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Recent Orders

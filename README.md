@@ -128,4 +128,17 @@ Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and *
 git clone https://github.com/USERNAME/admin-dashboard-nextjs.git
 cd admin-dashboard-nextjs
 npm install
-npm run dev```
+npm run dev
+```
+
+### 🌍 Live Demo 
+(Coming Soon)
+
+Will be deployed on Vercel.
+
+---
+
+### 📌 Author
+**Ahmad Ashraf**
+
+Front-End Developer

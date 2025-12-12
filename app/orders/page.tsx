@@ -5,36 +5,19 @@ import { Order , orders } from "../data/orders";
 import Link from "next/link";
 
 export default function OrdersPage() {
-    const [search, setSearch] = useState(""); // ⭐ سيرش ستيت جديدة
-    const [filterStatus, setFilterStatus] = useState("all");
+ const [search, setSearch] = useState(""); 
+const [filterStatus, setFilterStatus] = useState("all");
 const [sortField, setSortField] = useState<"id" | "date" | "amount">("id");
 const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
-// function handleSort(field: "id" | "date" | "amount") {
-//   setSortField((prevField) => {
-//     if (prevField === field) {
-//       // نفس العمود → قلب الاتجاه asc/desc
-//       setSortDirection((prevDir) => (prevDir === "asc" ? "desc" : "asc"));
-//       return prevField;
-//     } else {
-//       // عمود جديد → رجع الاتجاه لـ asc
-//       setSortDirection("asc");
-//       return field;
-//     }
-//   });
-// }
-
 function handleSort(field: "id" | "date" | "amount") {
   if (sortField === field) {
-    // نفس العمود → قلّب الاتجاه
     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
   } else {
-    // عمود جديد → غيّر العمود و رجّع الاتجاه لـ asc
     setSortField(field);
     setSortDirection("asc");
   }
 }
-
 
 const filteredOrders = orders.filter((order) => {
     const searchLower = search.toLowerCase();
@@ -62,7 +45,6 @@ const sortedOrders = [...filteredOrders].sort((a, b) => {
     aValue = a.amount;
     bValue = b.amount;
   } else {
-    // sortField === "date"
     aValue = new Date(a.date).getTime();
     bValue = new Date(b.date).getTime();
   }
@@ -74,7 +56,6 @@ const sortedOrders = [...filteredOrders].sort((a, b) => {
 
   return (
     <div className="space-y-6">
-      {/* العنوان */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
           Orders
@@ -84,7 +65,6 @@ const sortedOrders = [...filteredOrders].sort((a, b) => {
         </p>
       </div>
 
-      {/* Search bar */}
       <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-4">
         <input
           type="text"
@@ -108,7 +88,6 @@ const sortedOrders = [...filteredOrders].sort((a, b) => {
 
       
 
-      {/* جدول الأوردرز */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           All Orders

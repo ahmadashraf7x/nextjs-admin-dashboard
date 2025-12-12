@@ -23,7 +23,6 @@ export default function OrderDetailsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Back link */}
       <div>
         <Link
           href="/"
@@ -41,7 +40,6 @@ export default function OrderDetailsPage() {
         </p>
       </div>
 
-      {/* Order main info */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-xs text-gray-500">Status</p>
@@ -74,7 +72,6 @@ export default function OrderDetailsPage() {
         </div>
       </section>
 
-      {/* Extra box for “Order summary” (شكل بس) */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6 space-y-2">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">
           Order Summary

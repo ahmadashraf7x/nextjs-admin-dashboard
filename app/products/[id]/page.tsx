@@ -10,7 +10,7 @@ type Product = {
   category: string;
   price: number;
   status: "In Stock" | "Low Stock" | "Out of Stock";
-  stock: number; // الكمية في المخزون
+  stock: number; 
 };
 
 export default function ProductDetailsPage() {
@@ -19,7 +19,6 @@ export default function ProductDetailsPage() {
 
   const product = products.find((p) => p.id === productId);
 
-  // ✅ لو مفيش برودكت بالـ id ده
   if (!product) {
     return (
       <div className="space-y-4">
@@ -31,7 +30,6 @@ export default function ProductDetailsPage() {
     );
   }
 
-  // 🟢 لون الـ status حسب الحال
   const statusClasses =
     product.status === "In Stock"
       ? "bg-emerald-100 text-emerald-700"
@@ -41,7 +39,6 @@ export default function ProductDetailsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Back + title */}
       <div>
         <Link
           href="/products"
@@ -57,7 +54,6 @@ export default function ProductDetailsPage() {
         <p className="text-sm text-gray-500">{product.category}</p>
       </div>
 
-      {/* cards فوق */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-xs text-gray-500">Price</p>
@@ -83,7 +79,6 @@ export default function ProductDetailsPage() {
         </div>
       </section>
 
-      {/* سكشن ملخّص */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6 space-y-2">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">
           Product Summary

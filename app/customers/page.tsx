@@ -49,7 +49,6 @@ function handleSort(field: "name" | "totalSpent") {
     if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
     return 0;
   } else {
-    // totalSpent
     aValue = a.totalSpent;
     bValue = b.totalSpent;
     const base = aValue - bValue;
@@ -59,7 +58,6 @@ function handleSort(field: "name" | "totalSpent") {
   return (
 
     <div className="space-y-6">
-      {/* عنوان الصفحة + وصف بسيط */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
           Customers
@@ -69,7 +67,6 @@ function handleSort(field: "name" | "totalSpent") {
         </p>
       </div>
 
-      {/* كروت الإحصائيات */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-sm text-gray-500">Total Customers</p>
@@ -93,7 +90,6 @@ function handleSort(field: "name" | "totalSpent") {
         </div>
       </section>
 
-{/* Search + Filter */}
       <div className="flex flex-col md:flex-row gap-3 md:gap-4 mb-4">
         <input
           type="text"
@@ -114,7 +110,6 @@ function handleSort(field: "name" | "totalSpent") {
           <option value="Inactive">Inactive</option>
         </select>
       </div>
-      {/* جدول العملاء */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Customers List

@@ -51,7 +51,6 @@ const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
     return 0;
   } else {
-    // sortField === "price"
     aValue = a.price;
     bValue = b.price;
 
@@ -123,7 +122,6 @@ const sortedProducts = [...filteredProducts].sort((a, b) => {
   </select>
 </div>
 
-     
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Products List

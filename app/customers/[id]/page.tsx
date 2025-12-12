@@ -33,7 +33,6 @@ const customerOrders: Order[] = customer
 
   return (
     <div className="space-y-6">
-      {/* Back link + title */}
       <div>
         <Link
           href="/customers"
@@ -49,7 +48,6 @@ const customerOrders: Order[] = customer
         <p className="text-sm text-gray-500">{customer.email}</p>
       </div>
 
-      {/* معلومات أساسية */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-xs text-gray-500">Status</p>
@@ -82,7 +80,6 @@ const customerOrders: Order[] = customer
         </div>
       </section>
 
-      {/* معلومات إضافية بسيطة */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6 space-y-2">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">
           Customer Summary
@@ -98,7 +95,6 @@ const customerOrders: Order[] = customer
           show recent orders, address, contact info, and more.
         </p>
 
-        {/* Orders for this customer */}
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6 space-y-3">
         <h2 className="text-lg font-semibold text-gray-800">
           Orders for this customer
