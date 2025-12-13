@@ -1,10 +1,10 @@
 # 📊 Admin Dashboard — Orders, Customers & Products
 
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![Next.js](https://img.shields.io/badge/Next.js-16-black)
-![React](https://img.shields.io/badge/React-19.2.1-20232A?logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
-![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-38B2AC)
+![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=fff)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
 
 A modern **Admin Dashboard** built with **Next.js (App Router)**, **React**, **TypeScript** and **Tailwind CSS**.
 
@@ -125,16 +125,15 @@ Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and *
 ## ▶️ Run Locally
 
 ```bash
-git clone https://github.com/USERNAME/admin-dashboard-nextjs.git
-cd admin-dashboard-nextjs
+git clone https://github.com/ahmadashraf7x/nextjs-admin-dashboard.git
+cd nextjs-admin-dashboard
 npm install
 npm run dev
 ```
 
 ### 🌍 Live Demo 
-(Coming Soon)
 
-Will be deployed on Vercel.
+🚀 https://nextjs-admin-dashboard-blush.vercel.app
 
 ---
 
