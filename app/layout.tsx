@@ -29,11 +29,11 @@ export default function RootLayout({
               </Link>
 
               <Link
-  href="/products"
-  className="block px-3 py-2 rounded-md hover:bg-slate-800 transition-colors"
->
-  🛍 Products
-</Link>
+                href="/products"
+                className="block px-3 py-2 rounded-md hover:bg-slate-800 transition-colors"
+              >
+                🛍 Products
+              </Link>
 
               <Link
                 href="/orders"
@@ -41,8 +41,8 @@ export default function RootLayout({
               >
                 📦 Orders
               </Link>
-              
-            
+
+
               <Link
                 href="/customers"
                 className="block px-3 py-2 rounded-md hover:bg-slate-800 transition-colors"
@@ -51,11 +51,11 @@ export default function RootLayout({
               </Link>
 
               <Link
-  href="/Statistics"
-  className="block px-3 py-2 rounded-md hover:bg-slate-800 transition-colors"
->
-  📈 Statistics
-</Link>
+                href="/statistics"
+                className="block px-3 py-2 rounded-md hover:bg-slate-800 transition-colors"
+              >
+                📈 Statistics
+              </Link>
             </nav>
 
             <div className="px-6 py-4 border-t border-slate-700 text-xs text-slate-400">
