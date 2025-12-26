@@ -25,6 +25,33 @@ Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and *
 
 ---
 
+## 🧱 Project Structure & Architecture
+
+The project follows the Next.js App Router structure with a clear separation of concerns.
+
+- `app/` — Pages, routing, and layouts.
+- `components/` — Reusable UI components shared across multiple pages.
+- `lib/` — Business logic and reusable data calculations.
+- `data/` — Mock data used across the application.
+- `public/` — Static assets and screenshots.
+
+Key architectural decisions:
+- Business logic is separated from UI components to improve readability and maintainability.
+- Components and utilities are extracted only when reuse is necessary to avoid over-engineering.
+- Page-specific logic remains inside the page when it does not need to be shared.
+
+---
+
+## 🧠 What I Focused On
+
+- Writing clean, readable, and maintainable code.
+- Separating business logic from UI components to improve scalability and clarity.
+- Avoiding over-engineering by extracting components and logic only when reuse was necessary.
+- Handling edge cases such as empty states, invalid routes, and missing data.
+- Keeping a consistent UI and UX across all dashboard pages.
+
+---
+
 ### 📊 Dashboard (Overview)
 - Summary cards:
   - Total Orders
@@ -98,7 +125,7 @@ Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and *
 
 ## 🛠 Tech Stack
 
-- **Next.js 16.0.7 (App Router)**
+- **Next.js**
 - **React**
 - **TypeScript**
 - **Tailwind CSS**
