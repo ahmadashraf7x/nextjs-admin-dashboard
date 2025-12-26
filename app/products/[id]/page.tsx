@@ -10,7 +10,7 @@ type Product = {
   category: string;
   price: number;
   status: "In Stock" | "Low Stock" | "Out of Stock";
-  stock: number; 
+  stock: number;
 };
 
 export default function ProductDetailsPage() {
@@ -34,8 +34,8 @@ export default function ProductDetailsPage() {
     product.status === "In Stock"
       ? "bg-emerald-100 text-emerald-700"
       : product.status === "Low Stock"
-      ? "bg-amber-100 text-amber-700"
-      : "bg-red-100 text-red-600";
+        ? "bg-amber-100 text-amber-700"
+        : "bg-red-100 text-red-600";
 
   return (
     <div className="space-y-6">

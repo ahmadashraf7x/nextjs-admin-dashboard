@@ -45,13 +45,12 @@ export default function OrderDetailsPage() {
           <p className="text-xs text-gray-500">Status</p>
           <span
             className={`inline-flex mt-1 px-2 py-1 rounded-full text-xs font-semibold
-            ${
-              order.status === "Pending"
+            ${order.status === "Pending"
                 ? "bg-amber-100 text-amber-700"
                 : order.status === "Shipped"
-                ? "bg-emerald-100 text-emerald-700"
-                : "bg-red-100 text-red-600"
-            }`}
+                  ? "bg-emerald-100 text-emerald-700"
+                  : "bg-red-100 text-red-600"
+              }`}
           >
             {order.status}
           </span>

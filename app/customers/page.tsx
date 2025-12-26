@@ -12,16 +12,16 @@ export default function CustomersPage() {
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
   const [sortField, setSortField] = useState<"name" | "totalSpent">("name");
-const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
-function handleSort(field: "name" | "totalSpent") {
-  if (sortField === field) {
-    setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
-  } else {
-    setSortField(field);
-    setSortDirection("asc");
+  function handleSort(field: "name" | "totalSpent") {
+    if (sortField === field) {
+      setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      setSortField(field);
+      setSortDirection("asc");
+    }
   }
-}
 
   const filteredCustomers = customers.filter((customer) => {
     const searchLower = search.toLowerCase();
@@ -39,22 +39,22 @@ function handleSort(field: "name" | "totalSpent") {
   });
 
   const sortedCustomers = [...filteredCustomers].sort((a, b) => {
-  let aValue: number | string;
-  let bValue: number | string;
+    let aValue: number | string;
+    let bValue: number | string;
 
-  if (sortField === "name") {
-    aValue = a.name.toLowerCase();
-    bValue = b.name.toLowerCase();
-    if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
-    if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
-    return 0;
-  } else {
-    aValue = a.totalSpent;
-    bValue = b.totalSpent;
-    const base = aValue - bValue;
-    return sortDirection === "asc" ? base : -base;
-  }
-});
+    if (sortField === "name") {
+      aValue = a.name.toLowerCase();
+      bValue = b.name.toLowerCase();
+      if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
+      if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
+      return 0;
+    } else {
+      aValue = a.totalSpent;
+      bValue = b.totalSpent;
+      const base = aValue - bValue;
+      return sortDirection === "asc" ? base : -base;
+    }
+  });
   return (
 
     <div className="space-y-6">
@@ -120,12 +120,12 @@ function handleSort(field: "name" | "totalSpent") {
             <thead>
               <tr className="border-b border-gray-200">
                 <th
-  className="text-left py-2 pr-4 text-gray-500 font-medium cursor-pointer"
-  onClick={() => handleSort("name")}
->
-  Name{" "}
-  {sortField === "name" && (sortDirection === "asc" ? "↑" : "↓")}
-</th>
+                  className="text-left py-2 pr-4 text-gray-500 font-medium cursor-pointer"
+                  onClick={() => handleSort("name")}
+                >
+                  Name{" "}
+                  {sortField === "name" && (sortDirection === "asc" ? "↑" : "↓")}
+                </th>
                 <th className="text-left py-2 pr-4 text-gray-500 font-medium">
                   Email
                 </th>
@@ -135,13 +135,13 @@ function handleSort(field: "name" | "totalSpent") {
                 <th className="text-left py-2 pr-4 text-gray-500 font-medium">
                   Orders
                 </th>
-               <th
-  className="text-left py-2 pr-4 text-gray-500 font-medium cursor-pointer"
-  onClick={() => handleSort("totalSpent")}
->
-  Total Spent{" "}
-  {sortField === "totalSpent" && (sortDirection === "asc" ? "↑" : "↓")}
-</th>
+                <th
+                  className="text-left py-2 pr-4 text-gray-500 font-medium cursor-pointer"
+                  onClick={() => handleSort("totalSpent")}
+                >
+                  Total Spent{" "}
+                  {sortField === "totalSpent" && (sortDirection === "asc" ? "↑" : "↓")}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -150,24 +150,23 @@ function handleSort(field: "name" | "totalSpent") {
                   key={customer.id}
                   className="border-b border-gray-100 last:border-b-0"
                 >
-                <td className="py-2 pr-4 text-gray-800">
-  <Link
-    href={`/customers/${customer.id}`}
-    className="text-blue-600 hover:underline"
-  >
-    {customer.name}
-  </Link>
-</td>
+                  <td className="py-2 pr-4 text-gray-800">
+                    <Link
+                      href={`/customers/${customer.id}`}
+                      className="text-blue-600 hover:underline"
+                    >
+                      {customer.name}
+                    </Link>
+                  </td>
                   <td className="py-2 pr-4 text-gray-600">
                     {customer.email}
                   </td>
                   <td className="py-2 pr-4">
                     <span
                       className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold
-                        ${
-                          customer.status === "Active"
-                            ? "bg-emerald-100 text-emerald-700"
-                            : customer.status === "VIP"
+                        ${customer.status === "Active"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : customer.status === "VIP"
                             ? "bg-purple-100 text-purple-700"
                             : "bg-gray-100 text-gray-600"
                         }`}
