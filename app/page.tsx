@@ -2,6 +2,11 @@
 import Link from "next/link";
 import { orders, Order } from "./data/orders";
 import {
+  getDashboardStats,
+  getRevenueByDate,
+  getOrdersByStatus,
+} from "@/app/lib/dashboard";
+import {
   LineChart,
   Line,
   XAxis,
@@ -14,31 +19,16 @@ import {
   Cell,
 } from "recharts";
 
-const totalOrders = orders.length;
-const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
-const pendingOrders = orders.filter((o) => o.status === "Pending").length;
-
-const revenueByDateMap: Record<string, number> = {};
-orders.forEach((order) => {
-  revenueByDateMap[order.date] =
-    (revenueByDateMap[order.date] ?? 0) + order.amount;
-});
-
-const revenueByDate = Object.entries(revenueByDateMap)
-  .map(([date, total]) => ({ date, total }))
-  .sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-  );
-
-const statusData = [
-  { name: "Pending", value: orders.filter((o) => o.status === "Pending").length },
-  { name: "Shipped", value: orders.filter((o) => o.status === "Shipped").length },
-  { name: "Cancelled", value: orders.filter((o) => o.status === "Cancelled").length },
-];
-
-const STATUS_COLORS = ["#fbbf24", "#22c55e", "#f87171"]; 
+const STATUS_COLORS = ["#fbbf24", "#22c55e", "#f87171"];
 
 export default function DashboardPage() {
+
+  const { totalOrders, totalRevenue, pendingOrders } =
+    getDashboardStats();
+
+  const revenueByDate = getRevenueByDate();
+  const statusData = getOrdersByStatus();
+
   return (
     <div className="space-y-6">
       <div>
@@ -122,7 +112,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-      
+
       <section className="bg-white rounded-xl shadow-sm p-4 md:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Recent Orders
@@ -148,10 +138,10 @@ export default function DashboardPage() {
                   Amount
                 </th>
                 <th className="text-left py-2 pr-4 text-gray-500 font-medium">
-  Details
-</th>
+                  Details
+                </th>
               </tr>
-              
+
             </thead>
             <tbody>
               {orders.map((order) => (
@@ -167,17 +157,16 @@ export default function DashboardPage() {
                   <td className="py-2 pr-4">
                     <span
                       className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold
-                      ${
-                        order.status === "Pending"
+                      ${order.status === "Pending"
                           ? "bg-amber-100 text-amber-700"
                           : order.status === "Shipped"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-red-100 text-red-600"
-                      }`}
+                            ? "bg-emerald-100 text-emerald-700"
+                            : "bg-red-100 text-red-600"
+                        }`}
                     >
                       {order.status}
-                      
-                    </span> 
+
+                    </span>
 
                   </td>
                   <td className="py-2 pr-4 font-medium text-gray-800">
@@ -185,13 +174,13 @@ export default function DashboardPage() {
                   </td>
 
                   <td className="py-2 pr-4 font-medium text-gray-800">
-  <Link
-    href={`/orders/${order.id}`}
-    className="text-sm text-blue-600 hover:underline"
-  >
-    View
-  </Link>
-</td>
+                    <Link
+                      href={`/orders/${order.id}`}
+                      className="text-sm text-blue-600 hover:underline"
+                    >
+                      View
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
