@@ -1,32 +1,15 @@
 "use client";
-
-import { orders } from "../data/orders";
-import { customers } from "../data/customers";
+import {
+  getStatsOverview,
+  getTopCustomers,
+  getNewCustomersThisMonth,
+} from "@/app/lib/statistics";
 
 export default function StatsPage() {
-  const totalOrders = orders.length;
-  const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
-  const avgOrderValue = totalOrders ? totalRevenue / totalOrders : 0;
+  const { totalOrders, totalRevenue, avgOrderValue } = getStatsOverview();
+  const { topBySpent, topByOrders } = getTopCustomers();
+  const newThisMonth = getNewCustomersThisMonth();
 
-  const topBySpent = [...customers]
-    .sort((a, b) => b.totalSpent - a.totalSpent)
-    .slice(0, 5);
-
-  const topByOrders = [...customers]
-    .sort((a, b) => b.totalOrders - a.totalOrders)
-    .slice(0, 5);
-
-  const now = new Date();
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
-
-  const newThisMonth = customers.filter((c) => {
-    const joined = new Date(c.joinedAt);
-    return (
-      joined.getMonth() === currentMonth &&
-      joined.getFullYear() === currentYear
-    );
-  }).length;
 
   return (
     <div className="space-y-6">
@@ -35,8 +18,8 @@ export default function StatsPage() {
           Statistics
         </h1>
         <p className="text-sm text-gray-600">
-  Overview of recent orders and top customers (mock data).
-</p>
+          Overview of recent orders and top customers (mock data).
+        </p>
       </div>
 
       <section className="grid grid-cols-1 md:grid-cols-4 gap-4">
