@@ -43,4 +43,27 @@ export const orders: Order[] = [
     amount: 640,
     date: "2025-11-24",
   },
+
+  // Orders إضافية لنفس العملاء
+  {
+    id: 6,
+    customerName: "Ahmed Ali",
+    status: "Shipped",
+    amount: 450,
+    date: "2025-11-25",
+  },
+  {
+    id: 7,
+    customerName: "Ahmed Ali",
+    status: "Pending",
+    amount: 780,
+    date: "2025-11-26",
+  },
+  {
+    id: 8,
+    customerName: "Sara Mohamed",
+    status: "Shipped",
+    amount: 300,
+    date: "2025-11-27",
+  },
 ];

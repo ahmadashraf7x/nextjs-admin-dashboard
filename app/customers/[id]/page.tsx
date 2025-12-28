@@ -17,6 +17,12 @@ export default function CustomerDetailsPage() {
     ? orders.filter((order) => order.customerName === customer.name)
     : [];
 
+  const totalOrders = customerOrders.length;
+
+  const totalSpent = customerOrders.reduce(
+    (sum, order) => sum + order.amount,
+    0
+  );
 
   if (!customer) {
     return (
@@ -67,14 +73,14 @@ export default function CustomerDetailsPage() {
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-xs text-gray-500">Total Orders</p>
           <p className="mt-1 text-xl font-bold text-gray-800">
-            {customer.totalOrders}
+            {totalOrders}
           </p>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm p-4">
           <p className="text-xs text-gray-500">Total Spent</p>
           <p className="mt-1 text-xl font-bold text-blue-600">
-            ${customer.totalSpent}
+            ${totalSpent}
           </p>
         </div>
       </section>
