@@ -13,12 +13,35 @@ export function getStatsOverview() {
     };
 }
 
+function buildCustomerStats() {
+    const customersStats : Record<
+        string,
+        { name: string; totalOrders: number; totalSpent: number }
+    > = {};
+
+    orders.forEach((order) => {
+        if (!customersStats [order.customerName]) {
+            customersStats [order.customerName] = {
+                name: order.customerName,
+                totalOrders: 0,
+                totalSpent: 0,
+            };
+        }
+
+        customersStats [order.customerName].totalOrders += 1;
+        customersStats [order.customerName].totalSpent += order.amount;
+    });
+
+    return Object.values(customersStats );
+}
+
 export function getTopCustomers() {
-    const topBySpent = [...customers]
+    const stats = buildCustomerStats();
+    const topBySpent = [...stats]
         .sort((a, b) => b.totalSpent - a.totalSpent)
         .slice(0, 5);
 
-    const topByOrders = [...customers]
+    const topByOrders = [...stats]
         .sort((a, b) => b.totalOrders - a.totalOrders)
         .slice(0, 5);
 

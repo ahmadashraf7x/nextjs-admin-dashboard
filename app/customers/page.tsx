@@ -2,17 +2,37 @@
 
 import { useState } from "react";
 import { customers } from "../data/customers";
+import { orders } from "../data/orders";
 import Link from "next/link";
 
 const totalCustomers = customers.length;
 const activeCustomers = customers.filter((c) => c.status === "Active").length;
-const totalSpentAll = customers.reduce((sum, c) => sum + c.totalSpent, 0);
+const totalSpentAll = orders.reduce((sum, order) => sum + order.amount, 0);
 
 export default function CustomersPage() {
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
   const [sortField, setSortField] = useState<"name" | "totalSpent">("name");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+
+  const customersWithStats = customers.map((customer) => {
+    const customerOrders = orders.filter(
+      (order) => order.customerName === customer.name
+    );
+
+    const totalOrders = customerOrders.length;
+
+    const totalSpent = customerOrders.reduce(
+      (sum, order) => sum + order.amount,
+      0
+    );
+
+    return {
+      ...customer,
+      totalOrders,
+      totalSpent,
+    };
+  });
 
   function handleSort(field: "name" | "totalSpent") {
     if (sortField === field) {
@@ -23,7 +43,7 @@ export default function CustomersPage() {
     }
   }
 
-  const filteredCustomers = customers.filter((customer) => {
+  const filteredCustomers = customersWithStats.filter((customer) => {
     const searchLower = search.toLowerCase();
 
     const matchesName = customer.name.toLowerCase().includes(searchLower);

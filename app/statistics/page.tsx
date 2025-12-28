@@ -72,7 +72,7 @@ export default function StatsPage() {
             <tbody>
               {topBySpent.map((c) => (
                 <tr
-                  key={c.id}
+                  key={c.name}
                   className="border-b border-gray-100 last:border-b-0"
                 >
                   <td className="py-2 pr-4 text-gray-800">{c.name}</td>
@@ -109,7 +109,7 @@ export default function StatsPage() {
             <tbody>
               {topByOrders.map((c) => (
                 <tr
-                  key={c.id}
+                  key={c.name}
                   className="border-b border-gray-100 last:border-b-0"
                 >
                   <td className="py-2 pr-4 text-gray-800">{c.name}</td>
