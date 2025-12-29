@@ -15,13 +15,13 @@ Includes pages for **Dashboard**, **Orders**, **Customers**, **Products**, and *
 ## 🚀 Features
 
 ### 🧭 Layout & Navigation
-- Persistent sidebar with:
+- Persistent desktop sidebar with:
   - Dashboard
   - Orders
   - Customers
   - Products
   - Statistics
-- Responsive layout (sidebar hidden on mobile, main content full width)
+- Responsive navigation with an off-canvas, toggleable sidebar on mobile viewports
 
 ---
 
@@ -148,6 +148,16 @@ Key architectural decisions:
 
 ### 📈 Statistics
 ![Statistics](./public/screenshots/statistics.png)
+
+---
+
+### 📱 Mobile Views
+
+### 📊 Dashboard (Mobile)
+![Dashboard Mobile](./public/screenshots/dashboard-overview.png)
+
+### ☰ Mobile Sidebar (Off-canvas)
+![Mobile Sidebar](./public/screenshots/sidebar-open.png)
 
 ## ▶️ Run Locally
 
