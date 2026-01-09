@@ -46,10 +46,10 @@ export default function ProductsPage() {
     if (sortField === "name") {
       aValue = a.name.toLowerCase();
       bValue = b.name.toLowerCase();
+      const base = aValue.localeCompare(bValue);
+      return sortDirection === "asc" ? base : -base;
 
-      if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
-      if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
-      return 0;
+
     } else {
       aValue = a.price;
       bValue = b.price;
